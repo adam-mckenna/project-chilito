@@ -1,0 +1,13 @@
+/node_modules
+/public/storage
+/public/hot
+/public/css
+/public/js
+/public/img
+/storage/*.key
+/vendor
+/.idea
+/yarn.lock
+Homestead.json
+Homestead.yaml
+.env
