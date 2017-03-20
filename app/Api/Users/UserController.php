@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Api\Controllers;
+namespace App\Api\Users;
 
-use App\Api\Repositories\UserRepository;
-use App\Api\Requests\CreateUserRequest;
-use App\Api\Transformers\UserTransformer;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

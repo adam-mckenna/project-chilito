@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Repositories;
+namespace App\Api\Base;
 
 abstract class ResourceRepository extends BaseRepository
 {

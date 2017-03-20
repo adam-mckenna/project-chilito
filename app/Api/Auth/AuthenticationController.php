@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Api\Controllers\Auth;
+namespace App\Api\Auth;
 
-use App\Api\Models\User;
-use App\Api\Transformers\UserTransformer;
+use \App\Api\Users\User;
+use \App\Api\Users\UserTransformer;
 use Dingo\Api\Contract\Http\Request;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Auth\Events\Login;

@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Api\Repositories;
-
-use App\Api\Models\User;
+namespace App\Api\Users;
 
 class UserRepository extends ResourceRepository
 {
