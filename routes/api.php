@@ -18,7 +18,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
     $api->group([
         'as' => 'api.auth',
-        'namespace' => 'App\Api\Controllers\Auth',
+        'namespace' => 'App\Api\Auth',
         'prefix' => 'auth',
     ], function ($api) {
         $api->post('', [
@@ -41,7 +41,7 @@ $api->version('v1', function ($api) {
     $api->group([
         'as' => 'api',
         'middleware' => 'api.auth',
-        'namespace' => 'App\Api\Controllers',
+        'namespace' => 'App\Api\Users',
     ], function ($api) {
         $api->resource('users', 'UserController');
     });

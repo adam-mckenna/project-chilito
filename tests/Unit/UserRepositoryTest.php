@@ -2,8 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Api\Models\User;
-use App\Api\Repositories\UserRepository;
+use App\Api\Auth\AuthenticationService;
+use App\Api\Users\User;
+use App\Api\Users\UserRepository;
 use Faker\Factory as Faker;
 use Illuminate\Database\QueryException;
 use Tests\TestCase;

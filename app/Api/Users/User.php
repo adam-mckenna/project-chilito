@@ -2,6 +2,7 @@
 
 namespace App\Api\Users;
 
+use App\Api\Base\BaseModel;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends BaseModel implements Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active'
+        'id', 'name', 'email', 'password', 'active'
     ];
 
     /**
