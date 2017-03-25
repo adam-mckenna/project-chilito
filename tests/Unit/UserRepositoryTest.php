@@ -7,6 +7,7 @@ use App\Api\Users\User;
 use App\Api\Users\UserRepository;
 use Faker\Factory as Faker;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class UserRepositoryTest extends TestCase
@@ -32,7 +33,7 @@ class UserRepositoryTest extends TestCase
         $user = $this->userRepo->create($id, [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'active' => 1
         ]);
         $this->assertInstanceOf(User::class, $user);
@@ -51,7 +52,7 @@ class UserRepositoryTest extends TestCase
         $user = $this->userRepo->create($id, [
             'name' => '',
             'email' => 'no email',
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'active' => 1
         ]);
     }

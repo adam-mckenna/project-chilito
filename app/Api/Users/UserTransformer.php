@@ -18,6 +18,7 @@ class UserTransformer extends TransformerAbstract
             'name' => $user->name,
             'email' => $user->email,
             'password' => $user->password,
+            'ebay_user' => $user->ebay_user,
             'active' => $user->active
         ];
     }

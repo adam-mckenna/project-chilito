@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Api\Users;
+namespace App\Api\Users\Requests;
 
 use Dingo\Api\Http\FormRequest;
 
-class CreateUserRequest extends FormRequest
+class RegisterUserRequest extends FormRequest
 {
+    /**
+     * @return bool
+     */
     public function authorize()
     {
         return true;
@@ -17,6 +20,8 @@ class CreateUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'ebay_user' => 'required',
+            'active' => 'required | boolean',
         ];
     }
 }

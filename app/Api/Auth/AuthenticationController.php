@@ -36,8 +36,8 @@ class AuthenticationController extends Controller
 
     public function checkAuth()
     {
-        dd('eyp');
         $user = $this->authService->check();
-        return $this->response->item($user, new UserTransformer());
+        return $this->response->item($user, new UserTransformer())
+            ->addMeta('token', $this->authService->getAuthToken(auth()->user()));
     }
 }

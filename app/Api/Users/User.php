@@ -16,7 +16,7 @@ class User extends BaseModel implements Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password', 'active'
+        'id', 'name', 'email', 'password', 'active', 'ebay_user'
     ];
 
     /**

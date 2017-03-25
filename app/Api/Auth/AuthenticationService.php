@@ -28,15 +28,22 @@ class AuthenticationService
 
     public function logout()
     {
+        JWTAuth::invalidate(JWTAuth::getToken());
     }
 
     public function check()
     {
+        if (!JWTAuth::getToken())
+            throw new AuthenticationException();
+
+        return auth()->user();
     }
 
     private function getUserByEmail($email)
     {
-        return User::where('email', $email)->where('active', 1)->first();
+        return User::where('email', $email)
+            ->where('active', 1)
+            ->first();
     }
 
     public function getAuthToken($user)
