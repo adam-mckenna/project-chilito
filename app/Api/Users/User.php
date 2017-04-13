@@ -28,6 +28,11 @@ class User extends BaseModel implements Authenticatable
         'password', 'remember_token',
     ];
 
+    public function roles()
+    {
+        return $this->belongsToMany('Group', 'users_groups');
+    }
+
     /**
      * Get the name of the unique identifier for the user.
      *

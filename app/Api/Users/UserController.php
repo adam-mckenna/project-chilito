@@ -28,6 +28,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
+        // TODO: put ID generation on API, not front end
         $user = $this->userRepo->create($request->json('id'), $data);
         return $this->response->item($user, new UserTransformer);
     }
