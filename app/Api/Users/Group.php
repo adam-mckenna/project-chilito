@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Api\Users;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Api\Base\BaseModel;
 
-class Group extends Model
+class Group extends BaseModel
 {
     public $timestamps = false;
 
     public function users()
     {
-        return $this->belongsToMany('User', 'users_group');
+        return $this->belongsToMany(User::class, 'users_group');
     }
 }

@@ -19,7 +19,8 @@ class UserTransformer extends TransformerAbstract
             'email' => $user->email,
             'password' => $user->password,
             'ebay_user' => $user->ebay_user,
-            'active' => $user->active
+            'active' => $user->active,
+            'avatar_filename' => $user->avatar_filename
         ];
     }
 }

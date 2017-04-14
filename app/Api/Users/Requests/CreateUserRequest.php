@@ -11,7 +11,7 @@ class CreateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->isAdmin();
     }
 
     public function rules()

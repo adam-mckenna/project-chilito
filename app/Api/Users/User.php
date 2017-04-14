@@ -16,7 +16,13 @@ class User extends BaseModel implements Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password', 'active', 'ebay_user'
+        'id',
+        'name',
+        'email',
+        'password',
+        'active',
+        'ebay_user',
+        'avatar_filename'
     ];
 
     /**
@@ -25,12 +31,23 @@ class User extends BaseModel implements Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
-    public function roles()
+    public function groups()
     {
-        return $this->belongsToMany('Group', 'users_groups');
+        return $this->belongsToMany(Group::class, 'users_groups');
+    }
+
+    public function isAdmin()
+    {
+        return $this->groups()->find(2);
+    }
+
+    public function isBasic()
+    {
+        return $this->groups()->find(1);
     }
 
     /**

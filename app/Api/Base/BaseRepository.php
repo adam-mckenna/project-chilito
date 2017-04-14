@@ -15,6 +15,11 @@ abstract class BaseRepository
         return (new $model)->newQuery();
     }
 
+    public function listAll()
+    {
+        return $this->newQuery()->get();
+    }
+
     public function find($id, $fail = true)
     {
         if (is_null($id)) {

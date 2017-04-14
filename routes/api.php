@@ -52,6 +52,7 @@ $api->version('v1', function ($api) {
         'namespace' => 'App\Api',
     ], function ($api) {
         $api->resource('users', 'Users\UserController');
+        $api->post('{id}/avatar', 'Users\UserController@addAvatar');
     });
 });
 
