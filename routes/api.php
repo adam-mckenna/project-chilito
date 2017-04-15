@@ -22,6 +22,8 @@ $api->version('v1', function ($api) {
             'as' => 'register',
             'uses' => 'Users\UserController@register'
         ]);
+        $api->post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+        $api->post('password/reset', 'Auth\PasswordController@reset');
     });
 
     $api->group([

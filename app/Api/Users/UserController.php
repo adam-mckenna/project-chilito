@@ -2,6 +2,7 @@
 
 namespace App\Api\Users;
 
+use App\Api\Base\BaseController;
 use App\Api\Users\Requests\CreateAvatarRequest;
 use App\Api\Users\Requests\CreateUserRequest;
 use App\Api\Users\Requests\DeleteUserRequest;
@@ -13,11 +14,10 @@ use Dingo\Api\Routing\Helpers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Helpers;
 

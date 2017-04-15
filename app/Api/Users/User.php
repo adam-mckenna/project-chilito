@@ -3,10 +3,12 @@
 namespace App\Api\Users;
 
 use App\Api\Base\BaseModel;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable as Authenticatable;
 
-class User extends BaseModel implements Authenticatable
+class User extends BaseModel implements Authenticatable, CanResetPassword
 {
     use Notifiable;
 
@@ -40,11 +42,21 @@ class User extends BaseModel implements Authenticatable
         return $this->belongsToMany(Group::class, 'users_groups');
     }
 
+    /**
+     * Check is user has administrative permissions.
+     *
+     * @return boolean
+     */
     public function isAdmin()
     {
         return $this->groups()->find(2);
     }
 
+    /**
+     * Check if user has basic permissions.
+     *
+     * @return boolean
+     */
     public function isBasic()
     {
         return $this->groups()->find(1);
@@ -109,5 +121,26 @@ class User extends BaseModel implements Authenticatable
     public function getRememberTokenName()
     {
         // TODO: Implement getRememberTokenName() method.
+    }
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }
