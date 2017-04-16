@@ -2,8 +2,8 @@
 
 namespace App\Api\Users;
 
+use App\Api\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 use App\Api\Base\BaseModel;
-use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable as Authenticatable;
@@ -141,6 +141,6 @@ class User extends BaseModel implements Authenticatable, CanResetPassword
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPassword($token));
+        $this->notify(new ResetPasswordNotification($token));
     }
 }

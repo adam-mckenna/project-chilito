@@ -5,14 +5,12 @@ namespace App\Api\Auth;
 use App\Api\Base\BaseController;
 use \App\Api\Users\UserTransformer;
 use Dingo\Api\Contract\Http\Request;
-use Dingo\Api\Routing\Helpers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class AuthenticationController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Helpers;
+    use AuthorizesRequests, DispatchesJobs;
 
     private $authService;
 
